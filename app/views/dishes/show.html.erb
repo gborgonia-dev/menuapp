@@ -1,0 +1,39 @@
+<br><br><br>
+<div class="container panel panel-default" style="width:45%">
+
+<p id="notice"><%= notice %></p>
+
+<div class="img-thumbnail"><%= image_tag @dish.avatar.url(:medium) %></div>
+
+<table class="table table-striped" style="align: center">
+
+<tr>
+  <td><strong>Name:</strong></td>
+  <td><%= @dish.name %></td>
+</tr>
+
+<tr>
+  <td><strong>Description:</strong></td>
+  <td><%= @dish.description %></td>
+</tr>
+
+<tr>
+  <td><strong>Price:</strong></td>
+  <td><%= @dish.price %></td>
+</tr>
+
+<tr>
+  <td><strong>Category:</strong></td>
+  <td><%= @dish.category %></td>
+</tr>
+
+<tr>
+	<td></td>
+	<td align="right">
+		<%= link_to 'Edit', edit_dish_path(@dish) %> |
+		<%= link_to 'Back', dishes_path %>
+	</td>
+</tr>	
+
+</table>
+</div>

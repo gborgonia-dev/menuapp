@@ -1,0 +1,28 @@
+<br><br><br>
+<table class="container panel panel-default table" style="width: 70%">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <td class="btn btn-default btn-sm"><%= link_to new_dish_path do%><b><span class="fa fa-plus fa-fw"></b></span><% end %>
+      </td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dishes.each do |dish| %>
+      <tr>
+        <td><b><%= link_to dish do%> <%= dish.name %> <% end %></b></td>
+        <td><%= dish.description %></td>
+
+        <td> 
+          <div class="btn btn-default btn-sm"><%= link_to edit_dish_path(dish) do%><span class="fa fa-pencil fa-fw"></span><% end%></div>
+          <div class="btn btn-default btn-sm"><%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do%><span class="fa fa-trash-o fa-fw"></span><% end %></div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,45 @@
+<%= form_for(@dish) do |f| %>
+  <% if @dish.errors.any? %>
+  <br><div>
+  <div class="panel-group">
+    <div class="panel panel-danger">
+      <div class="panel-heading"><%= pluralize(@dish.errors.count, "error") %> prohibited this dish from being saved:</div>
+
+      <div class="panel-body text-danger">
+      <ul>
+      <% @dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+  <% end %>
+
+<br><br><br>
+  
+  <div class="field">
+    <div class="col-sm-5"><%= f.label :name %></div> <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <div class="col-sm-5"><%= f.label :description %></div> 
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <div class="col-sm-5"><%= f.label :price %></div> <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <div class="col-sm-5"><%= f.label :category %></div>
+    <%= f.select :category, options_for_select([["Main Course", "Main Course"], ["Desserts", "Desserts"], ["Beverages", "Beverages"]]) %>
+  </div>
+  <br>
+  <div>
+    <div class="col-sm-5"><b>Upload photo:</b></div>
+    <%= f.file_field :avatar, as: :file %>
+  </div>
+  <br>
+  <div class="actions">
+    <div class="col-sm-5"><%= f.submit %></div>
+  </div>
+<% end %>
