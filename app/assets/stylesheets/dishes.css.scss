@@ -17,3 +17,11 @@
     text-overflow: ellipsis; 
     border: 1px solid #000000;
 }
+
+.form-header{
+	background-color: #e6edf9;
+}
+
+.form-striped > tbody > tr:nth-of-type(even) {
+  background: rgba(230,237,249, .4);
+}
