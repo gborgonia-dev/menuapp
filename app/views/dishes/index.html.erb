@@ -4,8 +4,7 @@
     <tr class="form-header">
       <th>Name</th>
       <th>Description</th>
-      <td><%= link_to new_dish_path do%><b><span class="fa fa-plus fa-fw"></b></span><% end %>
-      </td>
+      <td colspan="2" align="center"><%= link_to new_dish_path do%><b><span class="fa fa-plus fa-fw"></b></span><% end %></td>
     </tr>
   </thead>
 
@@ -13,11 +12,11 @@
     <% @dishes.each do |dish| %>
       <tr>
         <td><b><%= link_to dish do%> <%= dish.name %> <% end %></b></td>
-        <td><%= dish.description %></td>
+        <td><%= truncate(dish.description, length: 110) {link_to "Read more", dish} %></td>
 
         <td> 
-          <div><%= link_to edit_dish_path(dish) do%><span class="fa fa-pencil fa-fw"></span><% end%></div>
-          <div><%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do%><span class="fa fa-trash-o fa-fw"></span><% end %></div>
+          <div><%= link_to edit_dish_path(dish) do%><span class="fa fa-pencil fa-fw"></span><% end%></div></td>
+        <td>  <div><%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do%><span class="fa fa-trash-o fa-fw"></span><% end %></div>
         </td>
       </tr>
     <% end %>

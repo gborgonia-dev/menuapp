@@ -3,5 +3,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @dish %> |
-<%= link_to 'Back', dishes_path %>
+<%= link_to dishes_path do%><span class="fa fa-chevron-circle-left fa-fw"></span><% end %> |
+<%= link_to @dish do%><span class="fa fa-folder-open fa-fw"></span><% end %> 

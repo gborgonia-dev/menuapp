@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.text {
-	float: left;
+.form-header{
+	background-color: #e6edf9;
 }
 
-.img {
-	float: right;
+.form-striped > tbody > tr:nth-of-type(even) {
+  background: rgba(230,237,249, .4);
 }
 
 .truncate{
@@ -16,12 +16,4 @@
     overflow: hidden;
     text-overflow: ellipsis; 
     border: 1px solid #000000;
-}
-
-.form-header{
-	background-color: #e6edf9;
-}
-
-.form-striped > tbody > tr:nth-of-type(even) {
-  background: rgba(230,237,249, .4);
 }
