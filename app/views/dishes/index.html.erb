@@ -1,5 +1,7 @@
-<br><br><br>
+
 <table class="container panel panel-default table form-striped" style="width: 70%">
+<div class="btn btn-default"><%= link_to new_user_session_path do%>Sign-in<% end %></div>
+<div class="btn btn-default"><%= link_to destroy_user_session_path, :method => :delete do%>Sign-out<% end %></div>
   <thead>
     <tr class="form-header">
       <th>Name</th>
@@ -22,6 +24,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-

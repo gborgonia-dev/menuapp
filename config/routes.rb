@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  # get "user/sign_in"
+  # get "user/sign_out"
+
   resources :dishes
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -7,6 +12,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'dishes#index'
 
+   get '/users/sign_out', :to => 'sessions#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
