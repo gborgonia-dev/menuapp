@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150513083735) do
     t.text     "description"
     t.float    "price"
     t.string   "category"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "avatar_file_name"
@@ -26,7 +27,11 @@ ActiveRecord::Schema.define(version: 20150513083735) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "dishes", ["user_id"], name: "index_dishes_on_user_id"
+
   create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

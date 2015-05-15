@@ -5,6 +5,7 @@ class CreateDishes < ActiveRecord::Migration
       t.text :description
       t.float :price
       t.string :category
+      t.belongs_to :user, index: true
 
       t.timestamps
     end

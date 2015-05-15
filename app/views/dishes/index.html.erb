@@ -1,26 +1,26 @@
+<nav class="navbar navbar-default">
+<% if current_user %>
+  <div align="right"><%= link_to "Sign-out", destroy_user_session_path, :method => :delete %></div>
+  <div align="right"><%= current_user.first_name%></div>
+<% else %>  
+  <br><div align='right'><%= link_to new_user_session_path do%>Sign-in<% end %></div>
+<% end %>
+</nav>
 
 <table class="container panel panel-default table form-striped" style="width: 70%">
-<div class="btn btn-default"><%= link_to new_user_session_path do%>Sign-in<% end %></div>
-<div class="btn btn-default"><%= link_to destroy_user_session_path, :method => :delete do%>Sign-out<% end %></div>
+
   <thead>
     <tr class="form-header">
       <th>Name</th>
       <th>Description</th>
-      <td colspan="2" align="center"><%= link_to new_dish_path do%><b><span class="fa fa-plus fa-fw"></b></span><% end %></td>
+      <td colspan="2" align="center">
+      <% if current_user %>
+        <%= link_to new_dish_path do%><b><span class="fa fa-plus fa-fw"></b></span><% end %>
+      <% end %>
+      </td>
     </tr>
   </thead>
-
   <tbody>
-    <% @dishes.each do |dish| %>
-      <tr>
-        <td><b><%= link_to dish do%> <%= dish.name %> <% end %></b></td>
-        <td><%= truncate(dish.description, length: 110) {link_to "Read more", dish} %></td>
-
-        <td> 
-          <div><%= link_to edit_dish_path(dish) do%><span class="fa fa-pencil fa-fw"></span><% end%></div></td>
-        <td>  <div><%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do%><span class="fa fa-trash-o fa-fw"></span><% end %></div>
-        </td>
-      </tr>
-    <% end %>
+    <%= render @dishes %>
   </tbody>
 </table>
