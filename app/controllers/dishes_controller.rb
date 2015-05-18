@@ -26,7 +26,7 @@ class DishesController < ApplicationController
   # POST /dishes.json
   def create
     @dish = Dish.new(dish_params)
-    @dish.user_id = current_user.id
+    @dish.user = current_user
     @dish.save
 
     respond_to do |format|
@@ -43,6 +43,8 @@ class DishesController < ApplicationController
   # PATCH/PUT /dishes/1
   # PATCH/PUT /dishes/1.json
   def update
+    @dish.user = current_user
+    @dish.save
     respond_to do |format|
       if @dish.update(dish_params)
         format.html { redirect_to @dish, notice: 'Dish was successfully updated.' }
