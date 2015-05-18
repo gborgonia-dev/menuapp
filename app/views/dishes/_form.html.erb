@@ -17,14 +17,13 @@
   </div>
   <% end %>
 
-<br><br><br>
+<br>
   
   <div class="field">
     <div class="col-sm-5"><%= f.label :name %></div> <%= f.text_field :name %>
   </div>
   <div class="field">
-    <div class="col-sm-5"><%= f.label :description %></div> 
-    <%= f.text_area :description %>
+    <div class="col-sm-5"><%= f.label :description %></div> <%= f.text_area :description, :size => "30x7" %>
   </div>
   <div class="field">
     <div class="col-sm-5"><%= f.label :price %></div> <%= f.text_field :price %>
@@ -41,5 +40,5 @@
   <br>
   <div class="actions">
     <div class="col-sm-5"><%= f.submit %></div>
-  </div>
+</div>
 <% end %>
