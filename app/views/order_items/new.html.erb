@@ -1,0 +1,27 @@
+<%= render 'shared/navbar' %>
+
+<%= form_for(@order_item) do |f| %>
+
+<br><br><br>
+<div class="container panel panel-default" style="width:50%">
+
+<p id="notice"><%= notice %></p>
+
+<table class="table table-striped" style="align: center">
+
+<div>
+  <div><%= f.hidden_field :dish_id, value: :dish_id %></div>
+</div>
+<div>
+  <div><%= f.label :price %></div> <%= f.text_field :price %>
+</div>
+
+<br>
+<div class="actions">
+	<div><%= f.submit %></div>
+</div>
+
+</table>
+</div>
+
+<% end %>
