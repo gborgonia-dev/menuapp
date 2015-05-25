@@ -7,13 +7,27 @@
 }
 
 .form-striped > tbody > tr:nth-of-type(even) {
-  background: rgba(230,237,249, .4);
+  background: rgba(230,237,249, .6);
 }
+ .action{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: right;
+ }
 
-.truncate{
-    white-space: nowrap; 
-    width: 12em; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    border: 1px solid #000000;
+ .img{
+ 	margin: 0px 0px 15px 15px;
+ }
+
+ .success{
+ 	font-size: 14px;
+ 	text-align: center;
+ }
+
+.red{
+	color: red;
 }
