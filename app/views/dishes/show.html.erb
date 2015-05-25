@@ -27,12 +27,15 @@
 </tr>
 
 <tr>
-	<td><i>Last modified by</i> <b><%= @dish.user.first_name %></b></td>
+	<td><i>Last modified by</i> <b><%= @dish.user.first_name %> <%= @dish.user.last_name %></b></td>
   <td></td>
 	<td align="right">
-		
+  <% if current_user %>
 		<%= link_to dishes_path do%><span class="fa fa-chevron-circle-left fa-fw"></span><% end %> |
     <%= link_to edit_dish_path(@dish) do%><span class="fa fa-pencil fa-fw"></span><% end %> 
+  <% else %>
+    <%= link_to dishes_path do%><span class="fa fa-chevron-circle-left fa-fw"></span><% end %> 
+  <% end %>
 	</td>
 </tr>	
 
