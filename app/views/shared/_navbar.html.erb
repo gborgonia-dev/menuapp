@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default">
+<% if current_user %>
+  <div align="right" class="col-md-12">
+    <div>Hello, <%= current_user.first_name%>!</div>
+    <span class="action"><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></span>
+    <span class="col-md-3"><%= link_to 'Dashboard', dishes_path %></span>
+    <span class="col-md-1"><%= link_to 'Add Dish', new_dish_path %></span >
+    <span class="col-md-1"><%= link_to 'Order List', orders_path %></span>
+  </div>
+<% else %>  
+  <br><div class="action" align='right'><%= link_to new_user_session_path do%>Login<% end %></div>
+<% end %>
+</nav>
