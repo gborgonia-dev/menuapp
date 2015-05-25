@@ -13,7 +13,7 @@
     <b><%= link_to dish.name, dish %></b>
     <div align="right">
       <% if current_user %>
-        <%= link_to new_order_item_path(:dish_id => dish) do%><span class="fa fa-shopping-cart fa-fw"></span><% end %> |
+        <%= link_to order_items_path do%><span class="fa fa-shopping-cart fa-fw"></span><% end %> |
         <%= link_to dish, method: :delete, data: {confirm: 'Are you sure?'} do%><span class="fa fa-trash fa-fw red"></span><% end %>
       <% end %>
     </div>
