@@ -26,7 +26,7 @@
   <td><%= @dish.category %></td>
 </tr>
 
-<tr>
+<tr>  
 	<td><i>Last modified by</i> <b><%= @dish.user.first_name %> <%= @dish.user.last_name %></b></td>
   <td></td>
 	<td align="right">
@@ -39,5 +39,20 @@
 	</td>
 </tr>	
 
+
 </table>
+<h4 class="comment-border">Comments</h4>
+Leave a comment
+<%= form_for([@dish, @dish.comments.build]) do |f| %>
+
+  <p>
+    <%= f.text_area :body, :size => "80x7" %>
+  </p>
+  <p align="center">
+    <%= f.submit %>
+  </p>
+<% end %>
+
+ Comments
+<%= render @dish.comments %>  
 </div>
