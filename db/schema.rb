@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525074820) do
+ActiveRecord::Schema.define(version: 20150526064351) do
+
+  create_table "comments", force: true do |t|
+    t.text     "body"
+    t.integer  "dish_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["dish_id"], name: "index_comments_on_dish_id"
 
   create_table "dishes", force: true do |t|
     t.string   "name"
@@ -30,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150525074820) do
   add_index "dishes", ["user_id"], name: "index_dishes_on_user_id"
 
   create_table "order_items", force: true do |t|
-    t.float   "price"
+    t.float   "quantity"
     t.integer "dish_id"
     t.integer "order_id"
   end
