@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <br><br><br>
 <div class="container panel panel-default" style="width:70%">
 
@@ -41,18 +42,22 @@
 
 
 </table>
-<h4 class="comment-border">Comments</h4>
-Leave a comment
+<% if current_user %>
+<br>
+<h4 class="comment-border"><b>Comments</b></h4>
+<b>Leave a comment</b>
 <%= form_for([@dish, @dish.comments.build]) do |f| %>
 
   <p>
-    <%= f.text_area :body, :size => "80x7" %>
+    <%= f.text_area :body, :size => "110x7" %>
   </p>
-  <p align="center">
+  <p align="left">
     <%= f.submit %>
   </p>
 <% end %>
-
- Comments
+<% else %>
+<h5 class="register-border"><br><%= link_to new_user_registration_path do %>Register<% end %> or <%= link_to new_user_session_path do %>Login<% end %> to add new comments.</h5><br>
+<% end %>
+<br>
 <%= render @dish.comments %>  
 </div>
