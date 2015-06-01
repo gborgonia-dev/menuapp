@@ -1,4 +1,12 @@
 <%= render 'shared/navbar' %>
+<div align="right">
+<%= form_tag(dishes_path, :method => "get", id: "search-form") do %>
+  <span><%= text_field_tag :search, params[:search], placeholder: "Search" %></span>
+  <span ><%= submit_tag "Search" %></span>
+<% end %>
+</div>
+
+
 <div class="container">
 <% if current_user %>
   <p class="bg-success success" id="notice"><%= notice %></p>
@@ -6,16 +14,4 @@
   <div class="panel-group"><p class="panel-heading" id="notice"><%= alert %></p></div>
 <% end %>
 
-<% @dishes.each do |dish| %>
-  <div class="img-thumbnail img" >
-    <%= link_to dish do%><%= image_tag dish.avatar.url(:medium) %><% end %>
-    <br>
-    <b><%= link_to dish.name, dish %></b>
-    <div align="right">
-      <% if current_user %>
-        <%= link_to new_order_item_path do%><span class="fa fa-shopping-cart fa-fw"></span><% end %> |
-        <%= link_to dish, method: :delete, data: {confirm: 'Are you sure?'} do%><span class="fa fa-trash fa-fw red"></span><% end %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+<%= render @dishes %>

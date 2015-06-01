@@ -6,11 +6,21 @@ class DishesController < ApplicationController
   # GET /dishes.json
   def index
     @dishes = Dish.all
+    if params[:search]
+      @dishes = Dish.search(params[:search]).order("created_at DESC")
+    else
+      @dishes = Dish.order('created_at DESC')
+    end
   end
 
   # GET /dishes/1
   # GET /dishes/1.json
   def show
+  end
+
+  def new_order
+    @order = Order.new
+    #@order_item = current_order.order_items.new
   end
 
   # GET /dishes/new
