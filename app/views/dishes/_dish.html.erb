@@ -5,8 +5,16 @@
     <span>Php<%= dish.price %></span>
     <div align="right">
       <% if current_user %>
- | 
-        <%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="red fa fa-trash"></span><% end %>
+      <div align="center">
+        <%= form_for @order_item, remote: true do |f| %>
+          <span><%= f.hidden_field :dish_id, value: dish.id %></span>
+          <span><%= f.number_field :quantity, value: 1, min: 1 %></span>
+          <span>
+            <%= f.submit "Add to cart"%>
+          </span>
+        <% end %> 
+        
+      </div>
       <% end %>
     </div>
   </div>

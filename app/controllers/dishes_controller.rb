@@ -6,6 +6,7 @@ class DishesController < ApplicationController
   # GET /dishes.json
   def index
     @dishes = Dish.all
+    @order_item = current_order.order_items.new
     if params[:search]
       @dishes = Dish.search(params[:search]).order("created_at DESC")
     else

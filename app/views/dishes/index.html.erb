@@ -6,7 +6,6 @@
 <% end %>
 </div>
 
-
 <div class="container">
 <% if current_user %>
   <p class="bg-success success" id="notice"><%= notice %></p>
@@ -14,4 +13,4 @@
   <div class="panel-group"><p class="panel-heading" id="notice"><%= alert %></p></div>
 <% end %>
 
-<%= render @dishes %>
+<%= render @dishes, dish: @dish, order_item: @order_item %>

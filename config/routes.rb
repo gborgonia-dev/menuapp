@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   #post '/add_to_cart/:dish_id' => 'orders#add_to_cart', :as => 'add_to_cart'  
-  
+    
   resources :dishes do
     resources :comments
-    resources :order_items
     #get '/dishes/:id' => 'dishes#new_order'
   end
-
+  resources :carts, only: [:show]
+  resources :order_items
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

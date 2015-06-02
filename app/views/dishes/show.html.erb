@@ -28,12 +28,12 @@
 </tr>
 
 <tr>  
-	<td><i>Last modified by</i> <b><%= @dish.user.first_name %> <%= @dish.user.last_name %></b></td>
-  <td></td>
+	<td colspan="2"><i>Last modified by</i> <b><%= @dish.user.first_name %> <%= @dish.user.last_name %></b></td>
 	<td align="right">
   <% if current_user %>
 		<%= link_to dishes_path do%><span class="fa fa-chevron-circle-left fa-fw"></span><% end %> |
-    <%= link_to edit_dish_path(@dish) do%><span class="fa fa-pencil fa-fw"></span><% end %> 
+    <%= link_to edit_dish_path(@dish) do%><span class="fa fa-pencil fa-fw"></span><% end %> |
+    <%= link_to dish_path, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="red fa fa-trash"></span><% end %>
   <% else %>
     <%= link_to dishes_path do%><span class="fa fa-chevron-circle-left fa-fw"></span><% end %> 
   <% end %>
