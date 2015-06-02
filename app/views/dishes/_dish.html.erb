@@ -1,0 +1,12 @@
+  <div class="img-thumbnail img" >
+    <%= link_to dish do%><%= image_tag dish.avatar.url(:medium) %><% end %>
+    <br>
+    <span class="col-md-9"><b><%= link_to dish.name, dish %></b></span>&nbsp;&nbsp;
+    <span>Php<%= dish.price %></span>
+    <div align="right">
+      <% if current_user %>
+ | 
+        <%= link_to dish, method: :delete, data: { confirm: 'Are you sure?' } do %><span class="red fa fa-trash"></span><% end %>
+      <% end %>
+    </div>
+  </div>
