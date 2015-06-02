@@ -8,6 +8,6 @@ class Dish < ActiveRecord::Base
 	validates_numericality_of :price, allow_blank: true
 
 	def self.search(search)
-		where("name LIKE ?", "%#{search}%")
+		where("name LIKE ? or description LIKE ?", "%#{search}%", "%#{search}%")
 	end
 end
